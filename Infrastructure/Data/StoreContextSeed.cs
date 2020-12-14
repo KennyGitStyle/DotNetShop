@@ -21,11 +21,6 @@ namespace Infrastructure.Data
 
                     brands.ForEach(b => context.ProductBrands.Add(b));
 
-                    // foreach (var item in brands)
-                    // {
-                    //     context.ProductBrands.Add(item);
-                    // }
-
                     await context.SaveChangesAsync();
                 }
                 
@@ -35,11 +30,6 @@ namespace Infrastructure.Data
                     var types = JsonSerializer.Deserialize<List<ProductType>>(typeData);
 
                     types.ForEach(t => context.ProductTypes.Add(t));
-
-                    // foreach (var item in types)
-                    // {
-                    //     context.ProductTypes.Add(item);
-                    // }
 
                     await context.SaveChangesAsync();
                 }
@@ -51,10 +41,6 @@ namespace Infrastructure.Data
 
                     products.ForEach(p => context.Products.Add(p));
 
-                    // foreach (var item in products)
-                    // {
-                    //     context.Products.Add(item);
-                    // }
 
                     await context.SaveChangesAsync();
                 }
