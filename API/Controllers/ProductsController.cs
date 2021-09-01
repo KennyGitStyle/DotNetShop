@@ -35,7 +35,7 @@ namespace API.Controllers
         public async Task<ActionResult<Pagination<ProductToReturnDto>>> GetProducts([FromQuery]ProductSpecParams productSpecParams)
         {
             var products = await _productRepo.ListAsync(new ProductsWithTypesAndBrandsSpecification(productSpecParams));
-<<<<<<< HEAD
+
 
             var countSpec = new ProductWithFiltersForCountSpecification(productSpecParams);
 
@@ -43,15 +43,7 @@ namespace API.Controllers
 
             var data = _mapper.Map<IReadOnlyList<Product>, IReadOnlyList<ProductToReturnDto>>(products);
 
-=======
 
-            var countSpec = new ProductWithFiltersForCountSpecification(productSpecParams);
-
-            var totalItem = await _productRepo.CountAsync(countSpec);
-
-            var data = _mapper.Map<IReadOnlyList<Product>, IReadOnlyList<ProductToReturnDto>>(products);
-
->>>>>>> 1355107d207ef4aab3d353c4f74cba355b53c810
             return Ok(new Pagination<ProductToReturnDto>(productSpecParams.PageIndex, productSpecParams.PageSize, totalItem, data));
 
         }

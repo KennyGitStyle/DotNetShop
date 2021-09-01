@@ -5,11 +5,9 @@
     "baseUrl": "./",
     "outDir": "./dist/out-tsc",
     "forceConsistentCasingInFileNames": true,
-<<<<<<< HEAD
+
     "strict": false,
-=======
-    "strict": true,
->>>>>>> 1355107d207ef4aab3d353c4f74cba355b53c810
+
     "noImplicitReturns": true,
     "noFallthroughCasesInSwitch": true,
     "sourceMap": true,
@@ -20,22 +18,15 @@
     "importHelpers": true,
     "target": "es2015",
     "module": "es2020",
-<<<<<<< HEAD
+
     "lib": ["es2018", "dom"]
-=======
-    "lib": [
-      "es2018",
-      "dom"
-    ]
->>>>>>> 1355107d207ef4aab3d353c4f74cba355b53c810
   },
   "angularCompilerOptions": {
     "strictInjectionParameters": true,
     "strictInputAccessModifiers": true,
-<<<<<<< HEAD
+
     "strictDomEventTypes": false,
-=======
->>>>>>> 1355107d207ef4aab3d353c4f74cba355b53c810
+
     "strictTemplates": true
   }
 }
