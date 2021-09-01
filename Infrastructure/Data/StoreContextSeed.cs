@@ -25,9 +25,9 @@ namespace Infrastructure.Data
                 }
                 
                 if(!context.ProductTypes.Any()){
-                    var typeData = File.ReadAllText("../Infrastructure/Data/SeedData/types.json");
+                    var typesData = File.ReadAllText("../Infrastructure/Data/SeedData/types.json");
 
-                    var types = JsonSerializer.Deserialize<List<ProductType>>(typeData);
+                    var types = JsonSerializer.Deserialize<List<ProductType>>(typesData);
 
                     types.ForEach(t => context.ProductTypes.Add(t));
 

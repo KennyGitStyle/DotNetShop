@@ -19,7 +19,7 @@ namespace API.Controllers
         private readonly IGenericRepository<ProductBrand> _productBrandRepo;
         private readonly IGenericRepository<ProductType> _productTypeRepo;
         private readonly IMapper _mapper;
-
+        
         public ProductsController(IGenericRepository<Product> productRepo, 
             IGenericRepository<ProductBrand> productBrandRepo, IGenericRepository<ProductType> productTypeRepo, IMapper mapper)
         {
@@ -29,6 +29,7 @@ namespace API.Controllers
             _productRepo = productRepo;
 
         }
+
 
         [HttpGet]
         public async Task<ActionResult<Pagination<ProductToReturnDto>>> GetProducts([FromQuery]ProductSpecParams productSpecParams)

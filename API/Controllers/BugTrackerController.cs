@@ -29,8 +29,7 @@ namespace API.Controllers
         public ActionResult GetServerError()
         {
             var check = _context.Products.Find(34);
-
-            var checkingServer = check.ToString();
+            _ = check.ToString();
 
             return Ok();
         }

@@ -24,6 +24,8 @@ namespace API.Controllers
             _logger = logger;
         }
 
+        public ILogger<WeatherForecastController> Logger => _logger;
+
         [HttpGet]
         public IEnumerable<WeatherForecast> Get()
         {
