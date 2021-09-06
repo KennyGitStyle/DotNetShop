@@ -12,31 +12,34 @@ namespace API
     public class Startup
     {
         private readonly IConfiguration _config;
+
         public Startup(IConfiguration config)
         {
             _config = config;
         }
 
-
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddAutoMapper(typeof (MappingProfiles));
             services.AddControllers();
-            services.AddDatabaseSqliteContextExtension(_config);
-            services.AddAutoMapper(typeof(MappingProfiles));
+            services.AddDatabaseSqliteContextExtension (_config);
             services.AddApplicationServices();
             services.AddSwaggerDocumentation();
-            services.AddCors(o =>
-            {
-                o.AddPolicy("CorsPolicy", policy =>
+            services
+                .AddCors(o =>
                 {
-                    policy.AllowAnyHeader().AllowAnyMethod().WithOrigins("https://localhost:4200");
+                    o
+                        .AddPolicy("CorsPolicy",
+                        policy =>
+                        {
+                            policy
+                                .AllowAnyHeader()
+                                .AllowAnyMethod()
+                                .WithOrigins("https://localhost:4200");
+                        });
                 });
-            });
-
         }
-
-
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
@@ -55,17 +58,14 @@ namespace API
 
             app.UseAuthorization();
 
-            //swagger here 
+            //swagger here
             app.UseSwaggerDocumentation();
 
-            app.UseEndpoints(endpoints =>
-            {
-                endpoints.MapControllers();
-            });
+            app
+                .UseEndpoints(endpoints =>
+                {
+                    endpoints.MapControllers();
+                });
         }
     }
 }
-
-
-
-
