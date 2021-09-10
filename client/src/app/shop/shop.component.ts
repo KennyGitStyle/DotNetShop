@@ -11,7 +11,7 @@ import { ShopService } from './shop.service'
   styleUrls: ['./shop.component.scss'],
 })
 export class ShopComponent implements OnInit {
-  @ViewChild('search', { static: true }) searchTerm: ElementRef
+  @ViewChild('search', { static: false }) searchTerm: ElementRef
   products: IProduct[]
   brands: IBrand[]
   types: IType[]
@@ -42,9 +42,6 @@ export class ShopComponent implements OnInit {
       (err) => {
         console.log(err)
       },
-      () => {
-        console.log('Completed...')
-      },
     )
   }
 
@@ -67,7 +64,6 @@ export class ShopComponent implements OnInit {
       (erro) => {
         console.log(erro)
       },
-      () => console.log('Completed'),
     )
   }
 
